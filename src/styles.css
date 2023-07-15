@@ -1,0 +1,87 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #0A0A0A;
+  background-color: #f6f6f6;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 7vh;
+  max-height: 7vh;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 15vw;
+  height: 100vh;
+  margin-right: 0;
+  color: #f6f6f6;
+  background-color: #6C6C60;
+}
+
+.view_panel {
+  display: flex;
+  width: 85vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  height: 9vh;
+}
+
+.back_button {
+  background-color: #C67006;
+  width: 7vh;
+  height: 7vh;
+}
+
+.dir_view {
+  color: #f6f6f6;
+  height: 91vh;
+}
+
+.entry {
+  display: flex;
+}
+
+.entry_name {
+  padding-top: 1.75vh;
+}
+
+.address {
+  display: flex;
+  justify-content: left;
+  width: 78vw;
+  padding-left: 1.75vh;
+  padding-top: 1.75vh;
+  background-color: #141414;
+  color: #f6f6f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #f6f6f6;
+    background-color: #3D3D3D;
+  }
+}
