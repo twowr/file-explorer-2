@@ -7,7 +7,7 @@ import fileView from "./components/FileView.vue"
 import topbar from "./components/Topbar.vue"
 import { ref, watch } from "vue"
 
-const path = ref(null)
+const path = ref("")
 homeDir().then(result => path.value = result)
 
 function on_back() {
