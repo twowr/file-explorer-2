@@ -6,6 +6,6 @@ const emit = defineEmits(["back"])
 
 <template>
     <div>
-        <button class="back_button" @click="emit('back')">back</button>
+        <button class="backButton" @click="emit('back')">back</button>
     </div>
 </template>

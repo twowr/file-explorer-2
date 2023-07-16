@@ -51,7 +51,7 @@ img {
   justify-content: center;
 }
 
-.view_panel {
+.viewPanel {
   width: 85vw;
   height: 100vh;
   overflow-x: hidden;
@@ -64,13 +64,13 @@ img {
   height: 9vh;
 }
 
-.back_button {
+.backButton {
   background-color: #C67006;
   width: 7vh;
   height: 7vh;
 }
 
-.file_view {
+.fileView {
   color: #f6f6f6;
   height: 91vh;
 }
@@ -84,7 +84,7 @@ img {
   background-color: #6d6d6d;
 }
 
-.entry_name {
+.entryName {
   padding-top: 1.75vh;
 }
 

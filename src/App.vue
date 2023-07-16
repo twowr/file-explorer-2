@@ -3,7 +3,7 @@
 import { sep } from "@tauri-apps/api/path"
 import { readDir } from "@tauri-apps/api/fs"
 import sidebar from "./components/Sidebar.vue"
-import file_view from "./components/File_view.vue"
+import fileView from "./components/FileView.vue"
 import topbar from "./components/Topbar.vue"
 import { ref, watch } from "vue"
 
@@ -21,8 +21,12 @@ function on_back() {
     }
 }
 
-function open(dir, is_directory) {
-    if (is_directory) {
+function on_search(keyword) {
+
+}
+
+function open(dir, isDirectory) {
+    if (isDirectory) {
         path.value = dir
     }
 }
@@ -47,10 +51,10 @@ const entries = ref(null)
 <template>
     <div class="container">
         <sidebar class="sidebar" @back="on_back"/>
-        <div class="view_panel">
-            <topbar class="topbar" @submit="open" :dir="path"/>
+        <div class="viewPanel">
+            <topbar class="topbar" @open="open" @search="on_search" :dir="path"/>
             <Suspense>
-                <file_view class="file_view" @open="open" :entries="entries"/>
+                <fileView class="fileView" @open="open" :entries="entries"/>
             </Suspense>
         </div>
     </div>

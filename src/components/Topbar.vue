@@ -1,10 +1,9 @@
 <script setup>
 import { computed, onMounted } from 'vue';
 
-
 const props = defineProps(["dir"])
 
-const emit = defineEmits(["submit"])
+const emit = defineEmits(["open", "search"])
 
 const path = computed(() => {
     return props.dir
@@ -14,7 +13,7 @@ onMounted(() => {
     let el = document.getElementsByClassName("address")[0];
     el.addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
-            emit("submit", el.value, true)
+            emit("open", el.value, true)
         }
     })
 })
