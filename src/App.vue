@@ -1,13 +1,14 @@
 <script setup>
 
-import { sep } from "@tauri-apps/api/path"
+import { sep, homeDir } from "@tauri-apps/api/path"
 import { readDir } from "@tauri-apps/api/fs"
 import sidebar from "./components/Sidebar.vue"
 import fileView from "./components/FileView.vue"
 import topbar from "./components/Topbar.vue"
 import { ref, watch } from "vue"
 
-const path = ref("D:\\project\\software-projects\\file_explorer_2")
+const path = ref(null)
+homeDir().then(result => path.value = result)
 
 function on_back() {
     let segments = path.value.split(sep)
@@ -22,7 +23,7 @@ function on_back() {
 }
 
 function on_search(keyword) {
-
+    //todo
 }
 
 function open(dir, isDirectory) {
