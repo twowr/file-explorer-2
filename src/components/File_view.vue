@@ -1,22 +1,13 @@
 <script setup>
-import { ref, onMounted, watch, computed } from "vue"
+import { ref, watch, computed } from "vue"
 import { readDir } from "@tauri-apps/api/fs"
 
 const props = defineProps(["dir"])
 
-const emit = defineEmits(["open", "submit"])
+const emit = defineEmits(["open"])
 
 const path = computed(() => {
     return props.dir
-})
-
-onMounted(() => {
-    let el = document.getElementsByClassName("address")[0];
-    el.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            emit("submit", el.value, true)
-        }
-    })
 })
 
 const entries = ref(null)
@@ -37,9 +28,6 @@ watch(path, () => {
 </script>
 
 <template>
-    <div class="topbar">
-        <input class="address" :value="dir"/>
-    </div>
     <div class="entry" @click="emit('open', entry.path, entry.children != null)" v-if="entries != null" v-for="entry in entries">
         <img v-if="entry.children != null" src="../assets/folder_icon.png" alt="folder">
         <img v-else src="../assets/file_icon.png" alt="file">

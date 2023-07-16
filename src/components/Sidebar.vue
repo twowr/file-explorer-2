@@ -5,5 +5,7 @@ const emit = defineEmits(["back"])
 </script>
 
 <template>
-    <button class="back_button" @back="emit('back')">back</button>
+    <div>
+        <button class="back_button" @click="emit('back')">back</button>
+    </div>
 </template>
