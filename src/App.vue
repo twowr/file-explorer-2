@@ -27,19 +27,20 @@ function open(dir, is_directory) {
     }
 }
 
+//initialize entries and update entries whenever the value path change
 const entries = ref(null)
 
-readDir(path.value, { recursive: false }).then((result) => {
-    //put sorted folders first then sorted files
-    entries.value = result.filter(entry => entry.children != null).sort().concat(result.filter(entry => entry.children == null).sort())
-})
-
-watch(path, () => {
     readDir(path.value, { recursive: false }).then((result) => {
         //put sorted folders first then sorted files
         entries.value = result.filter(entry => entry.children != null).sort().concat(result.filter(entry => entry.children == null).sort())
     })
-})
+
+    watch(path, () => {
+        readDir(path.value, { recursive: false }).then((result) => {
+            //put sorted folders first then sorted files
+            entries.value = result.filter(entry => entry.children != null).sort().concat(result.filter(entry => entry.children == null).sort())
+        })
+    })
 
 </script>
 
