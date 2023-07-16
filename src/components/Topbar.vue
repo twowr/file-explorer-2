@@ -24,5 +24,6 @@ onMounted(() => {
 <template>
     <div>
         <input class="address" :value="path"/>
+        <input class="search" placeholder="search">
     </div>
 </template>

@@ -1,10 +1,11 @@
 <script setup>
 
 import { sep } from "@tauri-apps/api/path"
+import { readDir } from "@tauri-apps/api/fs"
 import sidebar from "./components/Sidebar.vue"
 import file_view from "./components/File_view.vue"
 import topbar from "./components/Topbar.vue"
-import { ref } from "vue"
+import { ref, watch } from "vue"
 
 const path = ref("D:\\project\\software-projects\\file_explorer_2")
 
@@ -26,6 +27,20 @@ function open(dir, is_directory) {
     }
 }
 
+const entries = ref(null)
+
+readDir(path.value, { recursive: false }).then((result) => {
+    //put sorted folders first then sorted files
+    entries.value = result.filter(entry => entry.children != null).sort().concat(result.filter(entry => entry.children == null).sort())
+})
+
+watch(path, () => {
+    readDir(path.value, { recursive: false }).then((result) => {
+        //put sorted folders first then sorted files
+        entries.value = result.filter(entry => entry.children != null).sort().concat(result.filter(entry => entry.children == null).sort())
+    })
+})
+
 </script>
 
 <template>
@@ -34,7 +49,7 @@ function open(dir, is_directory) {
         <div class="view_panel">
             <topbar class="topbar" @submit="open" :dir="path"/>
             <Suspense>
-                <file_view class="file_view" @open="open" @submit="open" :dir="path"/>
+                <file_view class="file_view" @open="open" :entries="entries"/>
             </Suspense>
         </div>
     </div>
