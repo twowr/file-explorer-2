@@ -2,7 +2,7 @@
 
 import { sep } from "@tauri-apps/api/path"
 import sidebar from "./components/Sidebar.vue"
-import file_view from "./components/Dir_View.vue"
+import file_view from "./components/File_view.vue"
 import { ref } from "vue"
 
 const path = ref("D:\\project\\software-projects\\file_explorer_2")
@@ -29,10 +29,10 @@ function open(dir, is_directory) {
 
 <template>
     <div class="container">
-        <sidebar class="sidebar"/>
+        <sidebar class="sidebar" @back="on_back"/>
         <div class="view_panel">
             <Suspense>
-                <file_view class="file_view" @open="open" @back="on_back" @submit="open" :dir="path"/>
+                <file_view class="file_view" @open="open" @submit="open" :dir="path"/>
             </Suspense>
         </div>
     </div>

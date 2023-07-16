@@ -1,4 +1,9 @@
+<script setup>
+
+const emit = defineEmits(["back"])
+
+</script>
+
 <template>
-    <div>
-    </div>
+    <button class="back_button" @back="emit('back')">back</button>
 </template>

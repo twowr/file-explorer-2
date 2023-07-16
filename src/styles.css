@@ -1,8 +1,8 @@
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  font-size: 2.5vh;
+  line-height: 4vh;
+  font-weight: 50vh;
 
   color: #0A0A0A;
   background-color: #f6f6f6;
@@ -29,6 +29,7 @@ img {
 }
 
 .sidebar {
+  display: flex;
   width: 15vw;
   height: 100vh;
   margin-right: 0;
@@ -37,12 +38,10 @@ img {
 }
 
 .view_panel {
-  display: flex;
   width: 85vw;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
-  flex-direction: column;
 }
 
 .topbar {
@@ -52,8 +51,7 @@ img {
 
 .back_button {
   background-color: #C67006;
-  width: 7vh;
-  height: 7vh;
+  width: 9vh;
 }
 
 .file_view {
@@ -63,6 +61,11 @@ img {
 
 .entry {
   display: flex;
+  cursor: pointer;
+}
+
+.entry:hover {
+  background-color: #6d6d6d;
 }
 
 .entry_name {
@@ -72,11 +75,19 @@ img {
 .address {
   display: flex;
   justify-content: left;
-  width: 78vw;
-  padding-left: 1.75vh;
-  padding-top: 1.75vh;
+  width: 50vw;
   background-color: #141414;
   color: #f6f6f6;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 2.5vh;
+  line-height: 4vh;
+  font-weight: 50vh;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 @media (prefers-color-scheme: dark) {
