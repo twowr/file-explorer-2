@@ -4,7 +4,7 @@ import { sep } from "@tauri-apps/api/path"
 import sidebar from "./components/Sidebar.vue"
 import file_view from "./components/File_view.vue"
 import topbar from "./components/Topbar.vue"
-import { ref, onMounted } from "vue"
+import { ref } from "vue"
 
 const path = ref("D:\\project\\software-projects\\file_explorer_2")
 
@@ -26,22 +26,13 @@ function open(dir, is_directory) {
     }
 }
 
-onMounted(() => {
-    let el = document.getElementsByClassName("address")[0];
-    el.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            open(el.value, true)
-        }
-    })
-})
-
 </script>
 
 <template>
     <div class="container">
         <sidebar class="sidebar" @back="on_back"/>
         <div class="view_panel">
-            <topbar class="topbar"/>
+            <topbar class="topbar" @submit="open" :dir="path"/>
             <Suspense>
                 <file_view class="file_view" @open="open" @submit="open" :dir="path"/>
             </Suspense>
