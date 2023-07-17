@@ -37,6 +37,11 @@ img {
   max-height: 7vh;
 }
 
+img.baseDirectory {
+  max-width: 14vh;
+  max-height: 14vh;
+}
+
 .container {
   display: flex;
 }
@@ -86,6 +91,24 @@ img {
 
 .entryName {
   padding-top: 1.75vh;
+}
+
+.homePage {
+  color: #f6f6f6;
+  height: 91vh;
+}
+
+.mountPoint {
+  display: flex;
+  cursor: pointer;
+}
+
+.mountPoint:hover {
+  background-color: #6d6d6d;
+}
+
+.mountPointName {
+  padding-top: 5.25vh;
 }
 
 .address {

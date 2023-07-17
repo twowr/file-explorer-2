@@ -1,25 +1,31 @@
 <script setup>
 
-import { sep, homeDir } from "@tauri-apps/api/path"
+import { sep } from "@tauri-apps/api/path"
 import { readDir } from "@tauri-apps/api/fs"
 import sidebar from "./components/Sidebar.vue"
-import fileView from "./components/FileView.vue"
 import topbar from "./components/Topbar.vue"
+import fileView from "./components/FileView.vue"
+import homePage from "./components/HomePage.vue"
 import { ref, watch } from "vue"
 
 const path = ref("")
-homeDir().then(result => path.value = result)
 
 function on_back() {
     let segments = path.value.split(sep)
 
-    if (segments.length > 1) {
-        segments.pop()
-        path.value = segments.join(sep)
-        if (segments.length == 1) {
-            path.value += sep
-        }
+    let pop = segments.pop()
+
+    if (segments.length == 1 & pop == "") {
+        path.value = ""
+        return
     }
+
+    if (segments.length == 1 & pop != "") {
+        segments.push("")
+        
+    }
+
+    path.value = segments.join(sep)
 }
 
 function on_search(keyword) {
@@ -54,9 +60,10 @@ watch(path, () => {
         <sidebar class="sidebar" @back="on_back"/>
         <div class="viewPanel">
             <topbar class="topbar" @open="open" @search="on_search" :dir="path"/>
-            <Suspense>
+            <Suspense v-if="path != ''">
                 <fileView class="fileView" @open="open" :entries="entries"/>
             </Suspense>
+            <homePage class="homePage" @open="open" v-else/>
         </div>
     </div>
 </template>
