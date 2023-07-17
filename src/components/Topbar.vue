@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, watch } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 
 const props = defineProps(["dir"])
 const emit = defineEmits(["open", "search"])
@@ -31,3 +31,23 @@ onMounted(() => {
         <input class="search" placeholder="search" v-model="search_keyword">
     </div>
 </template>
+
+<style scoped>
+
+.address {
+  width: 50vw;
+  background-color: #141414;
+  color: #f6f6f6;
+  outline: none;
+  border: none;
+}
+
+.search {
+  width: 34.75vw;
+  background-color: #141414;
+  color: #f6f6f6;
+  outline: none;
+  border: none;
+}
+
+</style>

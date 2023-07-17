@@ -9,3 +9,13 @@ const emit = defineEmits(["back"])
         <button class="backButton" @click="emit('back')">back</button>
     </div>
 </template>
+
+<style scoped>
+
+.backButton {
+  background-color: #C67006;
+  width: 7vh;
+  height: 7vh;
+}
+
+</style>

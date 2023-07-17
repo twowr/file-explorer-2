@@ -14,3 +14,31 @@ const emit = defineEmits(["open"])
         <span v-if="entries.length == 0">This directory is empty</span>
     </div>
 </template>
+
+<style scoped>
+
+img {
+  max-width: 7vh;
+  max-height: 7vh;
+}
+
+span {
+  display: flex;
+  justify-content: center;
+  padding-top: 1.75vh;
+}
+
+.entry {
+  display: flex;
+  cursor: pointer;
+}
+
+.entry:hover {
+  background-color: #6d6d6d;
+}
+
+.entryName {
+  padding-top: 1.75vh;
+}
+
+</style>

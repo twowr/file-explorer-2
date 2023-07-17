@@ -17,3 +17,25 @@ invoke("get_mount_points").then(result => mountPoints.value = result)
         </div>
     </div>
 </template>
+
+<style scoped>
+
+img {
+  max-width: 14vh;
+  max-height: 14vh;
+}
+
+.mountPoint {
+  display: flex;
+  cursor: pointer;
+}
+
+.mountPoint:hover {
+  background-color: #6d6d6d;
+}
+
+.mountPointName {
+  padding-top: 5.25vh;
+}
+
+</style>

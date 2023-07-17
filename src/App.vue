@@ -68,4 +68,41 @@ watch(path, () => {
 
 <style scoped>
 
+.container {
+  display: flex;
+}
+
+.sidebar {
+  display: flex;
+  width: 15vw;
+  height: 100vh;
+  margin-right: 0;
+  color: #f6f6f6;
+  background-color: #6C6C60;
+  justify-content: center;
+}
+
+.viewPanel {
+  width: 85vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.topbar {
+  display: flex;
+  gap: 0.25vw;
+  height: 9vh;
+}
+
+.fileView {
+  color: #f6f6f6;
+  height: 91vh;
+}
+
+.homePage {
+  color: #f6f6f6;
+  height: 91vh;
+}
+
 </style>
