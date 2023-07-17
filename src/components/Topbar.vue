@@ -1,12 +1,17 @@
 <script setup>
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, watch } from 'vue';
 
 const props = defineProps(["dir"])
-
 const emit = defineEmits(["open", "search"])
 
 const path = computed(() => {
     return props.dir
+})
+
+const search_keyword = ref("")
+
+watch(search_keyword, (current, _previous) => {
+    emit("search", current)
 })
 
 onMounted(() => {
@@ -23,6 +28,6 @@ onMounted(() => {
 <template>
     <div>
         <input class="address" :value="path"/>
-        <input class="search" placeholder="search">
+        <input class="search" placeholder="search" v-model="search_keyword">
     </div>
 </template>
