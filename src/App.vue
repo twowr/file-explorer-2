@@ -19,7 +19,11 @@ function on_back() {
         segments.pop()
     }
 
-    path.value = segments.join(sep) + sep
+    path.value = segments.join(sep)
+
+    if (path.value != "") {
+        path.value += sep
+    }
 }
 
 function on_search(keyword) {
