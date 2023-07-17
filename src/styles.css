@@ -32,6 +32,12 @@ body {
   padding: 0;
 }
 
+span {
+  display: flex;
+  justify-content: center;
+  padding-top: 1.75vh;
+}
+
 img {
   max-width: 7vh;
   max-height: 7vh;

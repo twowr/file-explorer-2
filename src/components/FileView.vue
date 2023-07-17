@@ -11,5 +11,6 @@ const emit = defineEmits(["open"])
             <img v-else src="../assets/file_icon.png" alt="file">
             <span class="entryName">{{ entry.name }}</span>
         </div>
+        <span v-if="entries.length == 0">This directory is empty</span>
     </div>
 </template>
