@@ -15,17 +15,11 @@ function on_back() {
 
     let pop = segments.pop()
 
-    if (segments.length == 1 & pop == "") {
-        path.value = ""
-        return
+    if (pop == "") {
+        segments.pop()
     }
 
-    if (segments.length == 1 & pop != "") {
-        segments.push("")
-        
-    }
-
-    path.value = segments.join(sep)
+    path.value = segments.join(sep) + sep
 }
 
 function on_search(keyword) {
